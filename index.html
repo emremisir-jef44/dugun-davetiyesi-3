@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta property="og:title" content="Abdülsamed & Zeynep | Masalsı Bir Davet">
-    <meta property="og:description" content="Bulutların üzerinde bir serüven başlıyor...">
+    <meta property="og:description" content="Mutluluğumuzu paylaşmak dileğiyle...">
     <meta property="og:type" content="website">
 
     <title>Abdülsamed & Zeynep | Düğün Davetiyesi</title>
 
     <!-- Google Fonts (Rüya ve Cennet Konsepti) -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <style>
@@ -43,7 +43,7 @@
         }
         body.kilitli { overflow: hidden; }
 
-        /* AÇILIŞ EKRANI (Bulutlardan çıkış efekti) */
+        /* AÇILIŞ EKRANI */
         .acilis-ekrani { position: fixed; inset: 0; z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px; background: radial-gradient(circle at center, #ffffff 0%, #f3ebd8 100%); transition: opacity 1.5s ease, filter 1.5s ease; }
         .acilis-ekrani.gizli { opacity: 0; filter: blur(20px); pointer-events: none; }
         
@@ -54,8 +54,10 @@
         /* BUTONLAR (Kemer şekilli zarif düğmeler) */
         .buton { display: inline-block; padding: 15px 40px; background: transparent; border: 1px solid var(--koyu-altin); color: var(--koyu-altin); text-decoration: none; font-family: var(--font-baslik); font-size: 16px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; border-radius: 50px; cursor: pointer; transition: all 0.4s ease; backdrop-filter: blur(5px); }
         .buton:hover { background: var(--koyu-altin); color: #fff; box-shadow: 0 10px 30px rgba(184, 153, 79, 0.4); transform: translateY(-3px); }
-        .buton.dolu { background: var(--koyu-altin); color: #fff; }
-        .buton.dolu:hover { background: transparent; color: var(--koyu-altin); border-color: var(--koyu-altin); }
+        
+        /* Her zaman dolu (altın sarısı) görünecek buton stili */
+        .buton.dolu { background: var(--koyu-altin); color: #fff; box-shadow: 0 5px 15px rgba(184, 153, 79, 0.3); }
+        .buton.dolu:hover { background: transparent; color: var(--koyu-altin); border-color: var(--koyu-altin); box-shadow: none; transform: translateY(0); }
 
         /* MÜZİK */
         .muzik-buton { position: fixed; bottom: 30px; right: 30px; z-index: 999; background: var(--cam-arkaplan); backdrop-filter: blur(10px); border: 1px solid var(--cam-border); color: var(--koyu-altin); border-radius: 50%; width: 50px; height: 50px; font-size: 20px; cursor: pointer; transition: all 0.4s ease; display: flex; align-items: center; justify-content: center; }
@@ -77,17 +79,18 @@
             to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
         }
 
-        .ruya-yazisi { font-family: var(--font-baslik); font-size: 18px; font-weight: 300; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 20px; color: var(--altin-parilti); text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
+        /* "EVLENİYORUZ" YAZISI (Güncellendi) */
+        .ruya-yazisi { font-family: var(--font-baslik); font-size: 24px; font-weight: 600; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 20px; color: var(--altin-parilti); text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
         
         .isimler { font-family: var(--font-isim); font-size: clamp(70px, 15vw, 150px); line-height: 0.9; margin: 0; font-weight: 400; text-shadow: 0 0 20px rgba(232, 201, 126, 0.6), 0 4px 15px rgba(0,0,0,0.5); }
         
         .tarih-hero { font-family: var(--font-baslik); font-size: 20px; letter-spacing: 4px; font-style: italic; margin: 30px 0; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
 
         /* CAM KÜRE ŞEKLİNDE SAYAÇ */
-        .geri-sayim { display: flex; justify-content: center; gap: 15px; margin-top: 40px; }
+        .geri-sayim { display: flex; justify-content: center; gap: 15px; margin-top: 40px; margin-bottom: 40px; }
         .sayac-kure { width: 75px; height: 75px; border-radius: 50%; background: var(--cam-arkaplan); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid var(--cam-border); display: flex; flex-direction: column; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.2); }
         .sayac-kure strong { font-family: var(--font-baslik); font-size: 26px; font-weight: 400; line-height: 1; color: var(--bulut-beyazi); }
-        .sayac-kure span { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; color: var(--altin-parilti); }
+        .sayac-kure span { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; margin-top: 4px; color: var(--altin-parilti); font-weight: 500;}
 
         /* GENEL BÖLÜM TASARIMI */
         .bolum { padding: 100px 20px; position: relative; z-index: 3; background: #fdfaf5; }
@@ -108,7 +111,7 @@
         
         .kemer-icerik { text-align: center; margin-top: 25px; padding: 0 15px; }
         .kemer-icerik h3 { font-family: var(--font-baslik); font-size: 24px; color: var(--metin-koyu); margin: 0 0 10px; font-style: italic; }
-        .kemer-icerik span { display: inline-block; font-size: 11px; letter-spacing: 2px; color: var(--koyu-altin); text-transform: uppercase; margin-bottom: 15px; border-bottom: 1px solid var(--altin-parilti); padding-bottom: 5px; }
+        .kemer-icerik span { display: inline-block; font-size: 11px; letter-spacing: 2px; color: var(--koyu-altin); text-transform: uppercase; margin-bottom: 15px; border-bottom: 1px solid var(--altin-parilti); padding-bottom: 5px; font-weight: 500;}
         .kemer-icerik p { font-size: 13px; line-height: 1.8; color: var(--sicak-golge); }
 
         /* DÜĞÜN PROGRAMI (Minimalist) */
@@ -117,26 +120,20 @@
         
         .program-oge { text-align: center; position: relative; z-index: 1; }
         .program-saat { width: 60px; height: 60px; margin: 0 auto 20px; background: #fdfaf5; border: 1px solid var(--koyu-altin); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-baslik); font-size: 20px; color: var(--koyu-altin); font-weight: 600; box-shadow: 0 0 20px rgba(253,250,245, 1); }
-        .program-oge h4 { font-family: var(--font-baslik); font-size: 20px; margin: 0; color: var(--metin-koyu); }
-        .program-oge p { font-size: 12px; color: var(--sicak-golge); letter-spacing: 1px; text-transform: uppercase; margin-top: 5px; }
+        .program-oge h4 { font-family: var(--font-baslik); font-size: 20px; margin: 0; color: var(--metin-koyu); font-weight: 600;}
+        .program-oge p { font-size: 12px; color: var(--sicak-golge); letter-spacing: 1px; text-transform: uppercase; margin-top: 5px; font-weight: 500;}
 
         /* ADRES & KAMERA BÖLÜMLERİ */
         .cift-kolon { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
         .cam-kutu { background: #ffffff; padding: 50px 40px; border-radius: 20px; text-align: center; border: 1px solid rgba(184, 153, 79, 0.2); box-shadow: 0 20px 50px rgba(0,0,0,0.03); }
         
-        .cam-kutu h3 { font-family: var(--font-baslik); font-size: 32px; color: var(--koyu-altin); margin: 0 0 15px; }
+        .cam-kutu h3 { font-family: var(--font-baslik); font-size: 32px; color: var(--koyu-altin); margin: 0 0 15px; font-weight: 600;}
         .cam-kutu p { font-size: 15px; line-height: 1.8; color: var(--sicak-golge); margin-bottom: 30px; }
-        
-        /* FORM */
-        .minimal-form { display: flex; flex-direction: column; gap: 25px; }
-        .girdi-grubu input, .girdi-grubu select, .girdi-grubu textarea { width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(184, 153, 79, 0.4); padding: 10px 0; font-family: var(--font-metin); font-size: 14px; color: var(--metin-koyu); outline: none; transition: border-color 0.3s; }
-        .girdi-grubu input:focus, .girdi-grubu select:focus, .girdi-grubu textarea:focus { border-bottom-color: var(--koyu-altin); }
-        .girdi-grubu textarea { resize: none; height: 80px; }
         
         /* FOOTER */
         footer { background: var(--sicak-golge); padding: 80px 20px; text-align: center; color: var(--bulut-beyazi); }
         footer h2 { font-family: var(--font-isim); font-size: 60px; margin: 0 0 10px; font-weight: 400; color: var(--altin-parilti); }
-        footer p { font-family: var(--font-baslik); font-size: 16px; letter-spacing: 4px; text-transform: uppercase; opacity: 0.7; }
+        footer p { font-family: var(--font-baslik); font-size: 16px; letter-spacing: 4px; text-transform: uppercase; opacity: 0.7; font-weight: 500;}
 
         /* MOBİL UYARLAMALAR */
         @media (max-width: 900px) {
@@ -145,7 +142,9 @@
 
         @media (max-width: 750px) {
             .isimler { font-size: clamp(65px, 18vw, 90px); }
-            .ruya-yazisi { font-size: 14px; letter-spacing: 5px; }
+            
+            /* Evleniyoruz yazısı mobil ayarı */
+            .ruya-yazisi { font-size: 18px; letter-spacing: 6px; }
             
             .sayac-kure { width: 65px; height: 65px; }
             .sayac-kure strong { font-size: 22px; }
@@ -170,8 +169,8 @@
     <!-- AÇILIŞ EKRANI -->
     <div class="acilis-ekrani" id="acilisEkrani">
         <div class="karsilama-karti">
-            <h1>Cennetin Kapıları Aralanıyor</h1>
-            <p>Rüya gibi bir güne davetlisiniz.</p>
+            <h1>Size Özel Bir Davetimiz Var</h1>
+            <p>Mutluluğumuzu paylaşmanız dileğiyle...</p>
             <button class="buton dolu" id="davetiAc">Daveti Aç</button>
         </div>
     </div>
@@ -184,7 +183,7 @@
         <div class="video-overlay"></div>
         
         <div class="kapak-icerik">
-            <div class="ruya-yazisi">Bir Rüya Başlıyor</div>
+            <div class="ruya-yazisi">Evleniyoruz</div>
             <h1 class="isimler">Abdülsamed<br>& Zeynep</h1>
             <div class="tarih-hero">6 Mart 2027 Cumartesi</div>
             
@@ -195,8 +194,9 @@
                 <div class="sayac-kure"><strong id="saniye">00</strong><span>Saniye</span></div>
             </div>
             
-            <div style="margin-top: 40px;">
-                <a href="#adres" class="buton">Adres Bilgisi</a>
+            <div>
+                <!-- Adres butonu her zaman dolu görünecek -->
+                <a href="#adres" class="buton dolu">Adres Bilgisi</a>
             </div>
         </div>
     </header>
@@ -205,7 +205,7 @@
     <section class="bolum bulutlu">
         <div class="kapsayici">
             <h2 class="bolum-baslik" data-aos="fade-up">Hikayemiz</h2>
-            <div class="bolum-altbaslik" data-aos="fade-up">Bulutların Üzerinde Bir Aşk</div>
+            <div class="bolum-altbaslik" data-aos="fade-up">Birlikte Yürüdüğümüz Yol</div>
 
             <div class="hikaye-scroll" data-aos="fade-up" data-aos-delay="200">
                 <div class="kemer-kart">
@@ -282,13 +282,15 @@
             <div class="cam-kutu" data-aos="fade-right">
                 <h3>Düğün Mekanı</h3>
                 <p><strong>Yeşil Bahçe Davet Alanı</strong><br><br>Örnek Mahallesi, Düğün Sokak No:14<br>İstanbul<br><br>Saat: 19:00</p>
+                <!-- Buradaki buton da dolu olarak güncellendi -->
                 <a href="https://maps.google.com" target="_blank" rel="noopener" class="buton dolu">Haritada Aç</a>
             </div>
 
             <div class="cam-kutu" data-aos="fade-left">
                 <h3>Sizin Gözünüzden</h3>
                 <p>Bu geceyi bizimle paylaştığınız için mutluyuz. Yakaladığınız güzel anları albümümüze yükleyerek anıları ölümsüzleştirebilirsiniz.</p>
-                <a href="BURAYA_GOOGLE_PHOTOS_LINKI_GELECEK" target="_blank" rel="noopener" class="buton">Fotoğraf Yükle</a>
+                <!-- Buradaki buton da dolu olarak güncellendi -->
+                <a href="BURAYA_GOOGLE_PHOTOS_LINKI_GELECEK" target="_blank" rel="noopener" class="buton dolu">Fotoğraf Yükle</a>
             </div>
 
         </div>
@@ -347,7 +349,7 @@
             const simdi = new Date().getTime();
             const kalanSure = dugunTarihi - simdi;
             if (kalanSure <= 0) {
-                document.getElementById("geriSayim").innerHTML = "<h3 style='color: white; font-family: var(--font-baslik); font-size: 24px;'>Bugün Rüya Başlıyor!</h3>";
+                document.getElementById("geriSayim").innerHTML = "<h3 style='color: white; font-family: var(--font-baslik); font-size: 24px;'>Bugün Evleniyoruz!</h3>";
                 return;
             }
             document.getElementById("gun").textContent = Math.floor(kalanSure / (1000 * 60 * 60 * 24));
