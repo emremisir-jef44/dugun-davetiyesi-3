@@ -275,7 +275,7 @@
         </div>
     </section>
 
-    <!-- ADRES & DAVETLİ KAMERASI (YENİ FİREBASE SİSTEMİ EKLENDİ) -->
+    <!-- ADRES & DAVETLİ KAMERASI (YENİ FİREBASE ÇİFT BUTONLU SİSTEM) -->
     <section class="bolum" id="adres">
         <div class="kapsayici cift-kolon">
             
@@ -289,16 +289,24 @@
                 <h3>Sizin Gözünüzden</h3>
                 <p>Bu geceyi bizimle paylaştığınız için mutluyuz. Yakaladığınız güzel anları anında albümümüze yükleyebilirsiniz.</p>
                 
-                <!-- GİZLİ DOSYA GİRDİSİ (Doğrudan kamerayı açar) -->
+                <!-- GİZLİ DOSYA GİRDİLERİ (Biri kamera için, diğeri galeri için) -->
                 <input type="file" accept="image/*" capture="environment" id="kameraGirdisi" style="display: none;">
+                <input type="file" accept="image/*" id="galeriGirdisi" style="display: none;">
                 
-                <!-- KAMERA AÇAN BUTON (Firebase'e yollar) -->
-                <button class="buton dolu" id="fotoCekButonu" style="width: 100%; max-width: 250px; cursor: pointer; border: none;">
-                    📸 Fotoğraf Yükle
-                </button>
+                <!-- KAMERA VE GALERİ İÇİN BUTONLAR -->
+                <div style="display: flex; flex-direction: column; gap: 12px; align-items: center; justify-content: center; margin-top: 10px;">
+                    <!-- Direkt Kamerayı Açan Buton (Dolu Renkli) -->
+                    <button class="buton dolu" id="fotoCekButonu" style="width: 100%; max-width: 250px; cursor: pointer; border: none; font-family: var(--font-baslik);">
+                        📸 Fotoğraf Çek
+                    </button>
+                    <!-- Galeriyi Açan Buton (Şeffaf/Çizgili) -->
+                    <button class="buton" id="fotoYukleButonu" style="width: 100%; max-width: 250px; cursor: pointer; font-family: var(--font-baslik);">
+                        🖼️ Galeriden Seç
+                    </button>
+                </div>
                 
                 <!-- YÜKLEME MESAJI -->
-                <p id="fotoMesaj" style="margin-top: 15px; font-size: 14px; font-weight: 500;"></p>
+                <p id="fotoMesaj" style="margin-top: 20px; font-size: 14px; font-weight: 500;"></p>
             </div>
 
         </div>
@@ -320,7 +328,7 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getStorage, ref, uploadBytes } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-storage.js";
 
-        // Senin özel Firebase yapılandırman (Sondan bir önceki mesajdan alındı)
+        // Senin özel Firebase yapılandırman
         const firebaseConfig = {
             apiKey: "AIzaSyB06k_gS-PpokOab6nGFPKo-FGBXSmnZH4",
             authDomain: "abdulsamed-zeynep-wedding.firebaseapp.com",
@@ -334,25 +342,37 @@
         const storage = getStorage(app);
 
         // Arayüz Elementleri
-        const fotoButon = document.getElementById("fotoCekButonu");
+        const fotoCekButon = document.getElementById("fotoCekButonu");
+        const fotoYukleButon = document.getElementById("fotoYukleButonu");
         const kameraInput = document.getElementById("kameraGirdisi");
+        const galeriInput = document.getElementById("galeriGirdisi");
         const fotoMesaj = document.getElementById("fotoMesaj");
 
-        // Butona basılınca gizli input'u tetikleyerek kamerayı/galeriyi aç
-        fotoButon.addEventListener("click", (e) => {
+        // "Fotoğraf Çek" butonuna basılınca kamera input'unu tetikle
+        fotoCekButon.addEventListener("click", (e) => {
             e.preventDefault();
             kameraInput.click();
         });
 
-        // Kullanıcı bir fotoğraf çektiğinde veya seçtiğinde Firebase'e yükle
-        kameraInput.addEventListener("change", async (e) => {
+        // "Galeriden Seç" butonuna basılınca normal input'u tetikle
+        fotoYukleButon.addEventListener("click", (e) => {
+            e.preventDefault();
+            galeriInput.click();
+        });
+
+        // Ortak Dosya Yükleme Fonksiyonu
+        async function dosyaYukle(e, buton) {
             const dosya = e.target.files[0];
             if (!dosya) return;
 
-            const eskiYazi = fotoButon.textContent;
-            fotoButon.textContent = "Yükleniyor... ⏳";
-            fotoButon.style.pointerEvents = "none";
-            fotoButon.style.opacity = "0.7";
+            const eskiYazi = buton.innerHTML; // Hangi butona basıldıysa onun yazısını tut
+            buton.textContent = "Yükleniyor... ⏳";
+            
+            // Yükleme sırasında butonları pasifleştir
+            fotoCekButon.style.pointerEvents = "none";
+            fotoYukleButon.style.pointerEvents = "none";
+            fotoCekButon.style.opacity = "0.6";
+            fotoYukleButon.style.opacity = "0.6";
             fotoMesaj.textContent = "";
 
             try {
@@ -364,21 +384,27 @@
                 // Firebase'e fotoğrafı gönder
                 await uploadBytes(storageRef, dosya);
                 
-                // Başarılı mesajı göster ve butonu tekrar kullanıma aç
-                fotoButon.textContent = "Başka Çek 📸";
+                // Başarılı mesajı göster
                 fotoMesaj.textContent = "Harika! Fotoğraf albüme eklendi.";
                 fotoMesaj.style.color = "var(--koyu-altin)";
             } catch (hata) {
                 console.error("Firebase Yükleme Hatası:", hata);
-                fotoButon.textContent = eskiYazi;
                 fotoMesaj.textContent = "Yüklenirken bir sorun oluştu, lütfen internetini kontrol et.";
                 fotoMesaj.style.color = "var(--sicak-golge)";
             } finally {
-                fotoButon.style.pointerEvents = "auto";
-                fotoButon.style.opacity = "1";
-                kameraInput.value = ""; // Input'u temizle ki aynı dosyayı bir daha seçebilsin
+                // Yükleme bitince butonları eski haline döndür
+                buton.innerHTML = eskiYazi;
+                fotoCekButon.style.pointerEvents = "auto";
+                fotoYukleButon.style.pointerEvents = "auto";
+                fotoCekButon.style.opacity = "1";
+                fotoYukleButon.style.opacity = "1";
+                e.target.value = ""; // Input'u temizle
             }
-        });
+        }
+
+        // Inputlardaki "change" olayını dinle
+        kameraInput.addEventListener("change", (e) => dosyaYukle(e, fotoCekButon));
+        galeriInput.addEventListener("change", (e) => dosyaYukle(e, fotoYukleButon));
     </script>
 
     <script>
