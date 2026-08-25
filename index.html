@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta property="og:title" content="Abdülsamed & Zeynep | Masalsı Bir Davet">
+    <meta property="og:title" content="Zeynep & Samed | Masalsı Bir Davet">
     <meta property="og:description" content="Mutluluğumuzu paylaşmak dileğiyle...">
     <meta property="og:type" content="website">
 
-    <title>Abdülsamed & Zeynep | Düğün Davetiyesi</title>
+    <title>Zeynep & Samed | Düğün Davetiyesi</title>
 
     <!-- Google Fonts (Rüya ve Cennet Konsepti) -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
@@ -94,25 +94,10 @@
 
         /* GENEL BÖLÜM TASARIMI */
         .bolum { padding: 100px 20px; position: relative; z-index: 3; background: #fdfaf5; }
-        .bolum.bulutlu { background: linear-gradient(to bottom, transparent, #fdfaf5 5%, #fdfaf5 100%); margin-top: -20px; }
         .kapsayici { max-width: 1000px; margin: 0 auto; }
         
         .bolum-baslik { text-align: center; font-family: var(--font-isim); font-size: 55px; color: var(--koyu-altin); margin-bottom: 10px; font-weight: 400; }
         .bolum-altbaslik { text-align: center; font-family: var(--font-baslik); font-size: 16px; letter-spacing: 4px; text-transform: uppercase; color: var(--sicak-golge); margin-bottom: 60px; }
-
-        /* HİKAYEMİZ (Kemer Şekilli Cam Kartlar - Horizontal Scroll) */
-        .hikaye-scroll { display: flex; overflow-x: auto; gap: 30px; padding: 20px 20px 60px 20px; scroll-snap-type: x mandatory; -ms-overflow-style: none; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-        .hikaye-scroll::-webkit-scrollbar { display: none; }
-        
-        .kemer-kart { flex: 0 0 300px; scroll-snap-align: center; display: flex; flex-direction: column; align-items: center; }
-        .kemer-resim { width: 100%; aspect-ratio: 2/3; border-radius: 150px 150px 10px 10px; overflow: hidden; border: 2px solid var(--altin-parilti); box-shadow: 0 15px 40px rgba(184, 153, 79, 0.15); position: relative; }
-        .kemer-resim img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
-        .kemer-kart:hover .kemer-resim img { transform: scale(1.05); }
-        
-        .kemer-icerik { text-align: center; margin-top: 25px; padding: 0 15px; }
-        .kemer-icerik h3 { font-family: var(--font-baslik); font-size: 24px; color: var(--metin-koyu); margin: 0 0 10px; font-style: italic; }
-        .kemer-icerik span { display: inline-block; font-size: 11px; letter-spacing: 2px; color: var(--koyu-altin); text-transform: uppercase; margin-bottom: 15px; border-bottom: 1px solid var(--altin-parilti); padding-bottom: 5px; font-weight: 500;}
-        .kemer-icerik p { font-size: 13px; line-height: 1.8; color: var(--sicak-golge); }
 
         /* DÜĞÜN PROGRAMI (Minimalist) */
         .program-ag { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; }
@@ -152,8 +137,6 @@
 
             .program-ag { grid-template-columns: repeat(2, 1fr); gap: 40px 20px; }
             .program-ag::before { display: none; }
-            
-            .kemer-kart { flex: 0 0 75vw; }
         }
     </style>
 </head>
@@ -184,7 +167,7 @@
         
         <div class="kapak-icerik">
             <div class="ruya-yazisi">Evleniyoruz</div>
-            <h1 class="isimler">Abdülsamed<br>& Zeynep</h1>
+            <h1 class="isimler">Zeynep<br>& Samed</h1>
             <div class="tarih-hero">6 Mart 2027 Cumartesi</div>
             
             <div class="geri-sayim" id="geriSayim">
@@ -201,50 +184,7 @@
         </div>
     </header>
 
-    <!-- HİKAYEMİZ (KEMERLİ TASARIM) -->
-    <section class="bolum bulutlu">
-        <div class="kapsayici">
-            <h2 class="bolum-baslik" data-aos="fade-up">Hikayemiz</h2>
-            <div class="bolum-altbaslik" data-aos="fade-up">Birlikte Yürüdüğümüz Yol</div>
-
-            <div class="hikaye-scroll" data-aos="fade-up" data-aos-delay="200">
-                <div class="kemer-kart">
-                    <div class="kemer-resim">
-                        <img src="images/tanisma.jpg" alt="Tanışma" loading="lazy">
-                    </div>
-                    <div class="kemer-icerik">
-                        <span>29 Eylül 2020</span>
-                        <h3>İlk Karşılaşma</h3>
-                        <p>Her şey o güzel günde başladı. Hikayemizin ilk kelimeleri yazıldı.</p>
-                    </div>
-                </div>
-
-                <div class="kemer-kart">
-                    <div class="kemer-resim">
-                        <img src="images/teklif.jpg" alt="Teklif" loading="lazy">
-                    </div>
-                    <div class="kemer-icerik">
-                        <span>20 Haziran 2026</span>
-                        <h3>Sonsuzluğa Evet</h3>
-                        <p>Kurduğumuz hayallerin en güzel anında, geleceğe birlikte evet dedik.</p>
-                    </div>
-                </div>
-
-                <div class="kemer-kart">
-                    <div class="kemer-resim">
-                        <img src="images/nisan.jpg" alt="Nişan" loading="lazy">
-                    </div>
-                    <div class="kemer-icerik">
-                        <span>10 Temmuz 2026</span>
-                        <h3>Söz Verdik</h3>
-                        <p>Ailelerimizle birlikte, bu güzel yolculuğa ilk resmi adımımızı attık.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROGRAM -->
+    <!-- PROGRAM (Hikayemiz silindiği için direkt buraya geçiyor) -->
     <section class="bolum">
         <div class="kapsayici">
             <h2 class="bolum-baslik" data-aos="fade-up">Program</h2>
@@ -315,7 +255,7 @@
     <!-- FOOTER -->
     <footer>
         <div class="kapsayici" data-aos="fade-up">
-            <h2>Abdülsamed & Zeynep</h2>
+            <h2>Zeynep & Samed</h2>
             <p>6 Mart 2027</p>
         </div>
     </footer>
