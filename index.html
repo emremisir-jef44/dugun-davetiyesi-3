@@ -8,7 +8,7 @@
     <meta property="og:description" content="Mutluluğumuzu paylaşmak dileğiyle...">
     <meta property="og:type" content="website">
 
-    <title>Zeynep & Samed | Düğün Davetiyesi</title>
+    <title>Zeynep & Samed | Nişan Davetiyesi</title>
 
     <!-- Google Fonts (Rüya ve Cennet Konsepti) -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
@@ -79,9 +79,6 @@
             to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
         }
 
-        /* "EVLENİYORUZ" YAZISI */
-        .ruya-yazisi { font-family: var(--font-baslik); font-size: 24px; font-weight: 600; letter-spacing: 8px; text-transform: uppercase; margin-bottom: 20px; color: var(--altin-parilti); text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
-        
         .isimler { font-family: var(--font-isim); font-size: clamp(70px, 15vw, 150px); line-height: 0.9; margin: 0; font-weight: 400; text-shadow: 0 0 20px rgba(232, 201, 126, 0.6), 0 4px 15px rgba(0,0,0,0.5); }
         
         .tarih-hero { font-family: var(--font-baslik); font-size: 20px; letter-spacing: 4px; font-style: italic; margin: 30px 0; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
@@ -99,7 +96,7 @@
         .bolum-baslik { text-align: center; font-family: var(--font-isim); font-size: 55px; color: var(--koyu-altin); margin-bottom: 10px; font-weight: 400; }
         .bolum-altbaslik { text-align: center; font-family: var(--font-baslik); font-size: 16px; letter-spacing: 4px; text-transform: uppercase; color: var(--sicak-golge); margin-bottom: 60px; }
 
-        /* DÜĞÜN PROGRAMI (Minimalist) */
+        /* PROGRAM (Minimalist) */
         .program-ag { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; position: relative; }
         .program-ag::before { content: ""; position: absolute; top: 30px; left: 5%; right: 5%; height: 1px; background: linear-gradient(to right, transparent, var(--koyu-altin), transparent); z-index: 0; }
         
@@ -127,9 +124,6 @@
 
         @media (max-width: 750px) {
             .isimler { font-size: clamp(65px, 18vw, 90px); }
-            
-            /* Evleniyoruz yazısı mobil ayarı */
-            .ruya-yazisi { font-size: 18px; letter-spacing: 6px; }
             
             .sayac-kure { width: 65px; height: 65px; }
             .sayac-kure strong { font-size: 22px; }
@@ -166,7 +160,7 @@
         <div class="video-overlay"></div>
         
         <div class="kapak-icerik">
-            <div class="ruya-yazisi">Evleniyoruz</div>
+            <!-- "Evleniyoruz" yazısı kaldırıldı -->
             <h1 class="isimler">Zeynep<br>& Samed</h1>
             <div class="tarih-hero">6 Mart 2027 Cumartesi</div>
             
@@ -178,13 +172,13 @@
             </div>
             
             <div>
-                <!-- Adres butonu her zaman dolu görünecek -->
+                <!-- Adres butonu -->
                 <a href="#adres" class="buton dolu">Adres Bilgisi</a>
             </div>
         </div>
     </header>
 
-    <!-- PROGRAM (Hikayemiz silindiği için direkt buraya geçiyor) -->
+    <!-- PROGRAM -->
     <section class="bolum">
         <div class="kapsayici">
             <h2 class="bolum-baslik" data-aos="fade-up">Program</h2>
@@ -198,8 +192,8 @@
                 </div>
                 <div class="program-oge">
                     <div class="program-saat">19:00</div>
-                    <h4>Nikah</h4>
-                    <p>Sonsuzluk</p>
+                    <h4>Yüzükler</h4>
+                    <p>Söz ve Kurdele</p>
                 </div>
                 <div class="program-oge">
                     <div class="program-saat">19:30</div>
@@ -215,31 +209,30 @@
         </div>
     </section>
 
-    <!-- ADRES & DAVETLİ KAMERASI (YENİ FİREBASE ÇİFT BUTONLU SİSTEM) -->
+    <!-- ADRES & DAVETLİ KAMERASI -->
     <section class="bolum" id="adres">
         <div class="kapsayici cift-kolon">
             
             <div class="cam-kutu" data-aos="fade-right">
-                <h3>Düğün Mekanı</h3>
-                <p><strong>Yeşil Bahçe Davet Alanı</strong><br><br>Örnek Mahallesi, Düğün Sokak No:14<br>İstanbul<br><br>Saat: 19:00</p>
-                <a href="https://maps.google.com" target="_blank" rel="noopener" class="buton dolu">Haritada Aç</a>
+                <h3>Nişan Mekanı</h3>
+                <p><strong>Nova Organizasyon Davet Evi</strong><br><br>Saat: 19:00</p>
+                <!-- Doğrudan Harita Linki Eklendi -->
+                <a href="https://maps.app.goo.gl/g8xoDUnGt5wtVPb26" target="_blank" rel="noopener" class="buton dolu">Haritada Aç</a>
             </div>
 
             <div class="cam-kutu" data-aos="fade-left">
                 <h3>Sizin Gözünüzden</h3>
                 <p>Bu geceyi bizimle paylaştığınız için mutluyuz. Yakaladığınız güzel anları anında albümümüze yükleyebilirsiniz.</p>
                 
-                <!-- GİZLİ DOSYA GİRDİLERİ (Biri kamera için, diğeri galeri için) -->
+                <!-- GİZLİ DOSYA GİRDİLERİ -->
                 <input type="file" accept="image/*" capture="environment" id="kameraGirdisi" style="display: none;">
                 <input type="file" accept="image/*" id="galeriGirdisi" style="display: none;">
                 
-                <!-- KAMERA VE GALERİ İÇİN BUTONLAR -->
+                <!-- KAMERA VE GALERİ BUTONLARI -->
                 <div style="display: flex; flex-direction: column; gap: 12px; align-items: center; justify-content: center; margin-top: 10px;">
-                    <!-- Direkt Kamerayı Açan Buton (Dolu Renkli) -->
                     <button class="buton dolu" id="fotoCekButonu" style="width: 100%; max-width: 250px; cursor: pointer; border: none; font-family: var(--font-baslik);">
                         📸 Fotoğraf Çek
                     </button>
-                    <!-- Galeriyi Açan Buton (Şeffaf/Çizgili) -->
                     <button class="buton" id="fotoYukleButonu" style="width: 100%; max-width: 250px; cursor: pointer; font-family: var(--font-baslik);">
                         🖼️ Galeriden Seç
                     </button>
@@ -263,12 +256,11 @@
     <!-- SCRIPTLER -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
-    <!-- FİREBASE SDK'LARI (Fotoğraf Yükleme İçin) -->
+    <!-- FİREBASE SDK'LARI -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
         import { getStorage, ref, uploadBytes } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-storage.js";
 
-        // Senin özel Firebase yapılandırman
         const firebaseConfig = {
             apiKey: "AIzaSyB06k_gS-PpokOab6nGFPKo-FGBXSmnZH4",
             authDomain: "abdulsamed-zeynep-wedding.firebaseapp.com",
@@ -281,34 +273,29 @@
         const app = initializeApp(firebaseConfig);
         const storage = getStorage(app);
 
-        // Arayüz Elementleri
         const fotoCekButon = document.getElementById("fotoCekButonu");
         const fotoYukleButon = document.getElementById("fotoYukleButonu");
         const kameraInput = document.getElementById("kameraGirdisi");
         const galeriInput = document.getElementById("galeriGirdisi");
         const fotoMesaj = document.getElementById("fotoMesaj");
 
-        // "Fotoğraf Çek" butonuna basılınca kamera input'unu tetikle
         fotoCekButon.addEventListener("click", (e) => {
             e.preventDefault();
             kameraInput.click();
         });
 
-        // "Galeriden Seç" butonuna basılınca normal input'u tetikle
         fotoYukleButon.addEventListener("click", (e) => {
             e.preventDefault();
             galeriInput.click();
         });
 
-        // Ortak Dosya Yükleme Fonksiyonu
         async function dosyaYukle(e, buton) {
             const dosya = e.target.files[0];
             if (!dosya) return;
 
-            const eskiYazi = buton.innerHTML; // Hangi butona basıldıysa onun yazısını tut
+            const eskiYazi = buton.innerHTML;
             buton.textContent = "Yükleniyor... ⏳";
             
-            // Yükleme sırasında butonları pasifleştir
             fotoCekButon.style.pointerEvents = "none";
             fotoYukleButon.style.pointerEvents = "none";
             fotoCekButon.style.opacity = "0.6";
@@ -316,15 +303,11 @@
             fotoMesaj.textContent = "";
 
             try {
-                // Her fotoğraf için rastgele ve benzersiz bir dosya adı oluştur
                 const dosyaAdi = Date.now() + "_" + Math.random().toString(36).substring(7) + ".jpg";
-                // Yüklenecek hedef: dugun_fotograflari klasörü
-                const storageRef = ref(storage, 'dugun_fotograflari/' + dosyaAdi);
+                const storageRef = ref(storage, 'nisan_fotograflari/' + dosyaAdi); // Düğün yerine Nişan klasörü
                 
-                // Firebase'e fotoğrafı gönder
                 await uploadBytes(storageRef, dosya);
                 
-                // Başarılı mesajı göster
                 fotoMesaj.textContent = "Harika! Fotoğraf albüme eklendi.";
                 fotoMesaj.style.color = "var(--koyu-altin)";
             } catch (hata) {
@@ -332,17 +315,15 @@
                 fotoMesaj.textContent = "Yüklenirken bir sorun oluştu, lütfen internetini kontrol et.";
                 fotoMesaj.style.color = "var(--sicak-golge)";
             } finally {
-                // Yükleme bitince butonları eski haline döndür
                 buton.innerHTML = eskiYazi;
                 fotoCekButon.style.pointerEvents = "auto";
                 fotoYukleButon.style.pointerEvents = "auto";
                 fotoCekButon.style.opacity = "1";
                 fotoYukleButon.style.opacity = "1";
-                e.target.value = ""; // Input'u temizle
+                e.target.value = ""; 
             }
         }
 
-        // Inputlardaki "change" olayını dinle
         kameraInput.addEventListener("change", (e) => dosyaYukle(e, fotoCekButon));
         galeriInput.addEventListener("change", (e) => dosyaYukle(e, fotoYukleButon));
     </script>
@@ -385,12 +366,12 @@
         });
 
         // GERİ SAYIM
-        const dugunTarihi = new Date("2027-03-06T19:00:00+03:00").getTime();
+        const nisanTarihi = new Date("2027-03-06T19:00:00+03:00").getTime();
         function geriSayimiGuncelle() {
             const simdi = new Date().getTime();
-            const kalanSure = dugunTarihi - simdi;
+            const kalanSure = nisanTarihi - simdi;
             if (kalanSure <= 0) {
-                document.getElementById("geriSayim").innerHTML = "<h3 style='color: white; font-family: var(--font-baslik); font-size: 24px;'>Bugün Evleniyoruz!</h3>";
+                document.getElementById("geriSayim").innerHTML = "<h3 style='color: white; font-family: var(--font-baslik); font-size: 24px;'>Bugün Nişanlanıyoruz!</h3>";
                 return;
             }
             document.getElementById("gun").textContent = Math.floor(kalanSure / (1000 * 60 * 60 * 24));
