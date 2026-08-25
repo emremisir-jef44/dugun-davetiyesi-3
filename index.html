@@ -81,6 +81,17 @@
 
         .isimler { font-family: var(--font-isim); font-size: clamp(70px, 15vw, 150px); line-height: 0.9; margin: 0; font-weight: 400; text-shadow: 0 0 20px rgba(232, 201, 126, 0.6), 0 4px 15px rgba(0,0,0,0.5); }
         
+        /* TAM ORTADA DURAN ZARİF '&' SEMBOLÜ */
+        .isimler .ampersand {
+            display: block; 
+            font-family: var(--font-baslik); 
+            font-size: 0.6em; 
+            color: var(--altin-parilti);
+            margin: -5px 0; 
+            line-height: 1;
+            font-style: italic;
+        }
+
         .tarih-hero { font-family: var(--font-baslik); font-size: 20px; letter-spacing: 4px; font-style: italic; margin: 30px 0; text-shadow: 0 2px 10px rgba(0,0,0,0.5); }
 
         /* CAM KÜRE ŞEKLİNDE SAYAÇ */
@@ -160,8 +171,9 @@
         <div class="video-overlay"></div>
         
         <div class="kapak-icerik">
-            <!-- "Evleniyoruz" yazısı kaldırıldı -->
-            <h1 class="isimler">Zeynep<br>& Samed</h1>
+            
+            <!-- İSİMLER (Amperand Özel CSS ile Ortalandı) -->
+            <h1 class="isimler">Zeynep <span class="ampersand">&amp;</span> Samed</h1>
             <div class="tarih-hero">6 Mart 2027 Cumartesi</div>
             
             <div class="geri-sayim" id="geriSayim">
@@ -172,7 +184,6 @@
             </div>
             
             <div>
-                <!-- Adres butonu -->
                 <a href="#adres" class="buton dolu">Adres Bilgisi</a>
             </div>
         </div>
@@ -209,14 +220,14 @@
         </div>
     </section>
 
-    <!-- ADRES & DAVETLİ KAMERASI -->
+    <!-- ADRES & DAVETLİ KAMERASI (YENİ FİREBASE ÇİFT BUTONLU SİSTEM) -->
     <section class="bolum" id="adres">
         <div class="kapsayici cift-kolon">
             
             <div class="cam-kutu" data-aos="fade-right">
                 <h3>Nişan Mekanı</h3>
                 <p><strong>Nova Organizasyon Davet Evi</strong><br><br>Saat: 19:00</p>
-                <!-- Doğrudan Harita Linki Eklendi -->
+                <!-- Doğrudan Harita Linki -->
                 <a href="https://maps.app.goo.gl/g8xoDUnGt5wtVPb26" target="_blank" rel="noopener" class="buton dolu">Haritada Aç</a>
             </div>
 
@@ -304,7 +315,7 @@
 
             try {
                 const dosyaAdi = Date.now() + "_" + Math.random().toString(36).substring(7) + ".jpg";
-                const storageRef = ref(storage, 'nisan_fotograflari/' + dosyaAdi); // Düğün yerine Nişan klasörü
+                const storageRef = ref(storage, 'nisan_fotograflari/' + dosyaAdi);
                 
                 await uploadBytes(storageRef, dosya);
                 
